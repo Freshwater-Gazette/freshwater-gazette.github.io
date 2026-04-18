@@ -9,119 +9,108 @@ permalink: /404.html
   <div class="error-page__code">404</div>
   <h1 class="error-page__title">Page not found</h1>
   <p class="error-page__message">The page you're looking for doesn't exist or has been moved.</p>
-  
+
   <nav class="error-page__nav">
-    <a href="{{ '/' | relative_url }}" class="nav-pill">Back to Home</a>
+    <a href="{{ '/' | relative_url }}" class="error-page__btn">Back to News</a>
   </nav>
-  
+
   <div class="error-page__suggestions">
-    <p class="error-page__suggestions-title">Or try one of these:</p>
+    <p class="error-page__suggestions-title">Or try:</p>
     <div class="error-page__links">
-      <a href="{{ '/blog/' | relative_url }}" class="error-page__link">Blog</a>
-      <a href="{{ '/projects/' | relative_url }}" class="error-page__link">Projects</a>
-      <a href="{{ '/reviews/' | relative_url }}" class="error-page__link">Book Reviews</a>
+      <a href="{{ '/blog/' | relative_url }}" class="error-page__link">All Articles</a>
+      <a href="{{ '/subscribe/' | relative_url }}" class="error-page__link">Subscribe</a>
+      <a href="{{ '/contact/' | relative_url }}" class="error-page__link">Contact</a>
     </div>
   </div>
 </div>
 
 <style>
-/* Error Page Styles */
 .error-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 70vh;
-  padding: var(--spacing-lg);
-  animation: fade-in 0.4s ease-out;
+  min-height: 60vh;
+  padding: 48px 24px;
 }
 
 .error-page__code {
+  font-family: var(--font-display);
   font-size: clamp(6rem, 20vw, 12rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: var(--color-gray-200);
+  color: var(--gray-200);
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
 }
 
 .error-page__title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 
 .error-page__message {
-  font-size: 1.125rem;
-  color: var(--color-gray-600);
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--gray-500);
   max-width: 400px;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 32px;
 }
 
-.error-page__nav {
-  margin-bottom: var(--spacing-xl);
-}
-
-.error-page__nav .nav-pill {
+.error-page__btn {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--black);
+  padding: 12px 28px;
   display: inline-block;
-  min-width: 200px;
+  margin-bottom: 48px;
 }
+
+.error-page__btn:hover { opacity: 0.75; }
 
 .error-page__suggestions {
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--color-gray-200);
+  padding-top: 24px;
+  border-top: var(--border);
 }
 
 .error-page__suggestions-title {
-  font-size: 0.875rem;
-  color: var(--color-gray-400);
-  font-weight: 400;
-  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 12px;
 }
 
 .error-page__links {
   display: flex;
-  gap: var(--spacing-md);
+  gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .error-page__link {
-  color: var(--color-gray-600);
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--border-radius);
-  transition: var(--transition-default);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--gray-500);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.error-page__link:hover {
-  color: var(--color-foreground);
-  background-color: var(--color-gray-100);
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .error-page__title {
-    font-size: 1.5rem;
-  }
-  
-  .error-page__links {
-    flex-direction: column;
-    gap: var(--spacing-xs);
-  }
-}
+.error-page__link:hover { color: var(--black); }
 </style>
-

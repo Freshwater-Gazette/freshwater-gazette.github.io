@@ -7,11 +7,13 @@
 
   <header class="site-header">
     <div class="header-banner">
-      <a href="{{ '/' | relative_url }}">
+      <a href="{{ '/' | relative_url }}" class="header-banner__link">
         {% if site.banner_image %}
         <img src="{{ site.banner_image | relative_url }}" alt="{{ site.title }}">
         {% else %}
+        <img class="header-banner__icon" src="{{ '/assets/images/android-chrome-512x512.png' | relative_url }}" alt="">
         <span class="header-banner__wordmark">{{ site.title }}</span>
+        <img class="header-banner__icon" src="{{ '/assets/images/android-chrome-512x512.png' | relative_url }}" alt="">
         {% endif %}
       </a>
     </div>

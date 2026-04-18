@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-banner">
+      <a href="{{ '/' | relative_url }}">
+        {% if site.banner_image %}
+        <img src="{{ site.banner_image | relative_url }}" alt="{{ site.title }}">
+        {% else %}
+        <span class="header-banner__wordmark">{{ site.title }}</span>
+        {% endif %}
+      </a>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}">News</a>
+      <a href="{{ '/subscribe/' | relative_url }}">Subscribe</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  {% if page.extra_js %}
+  {% for js in page.extra_js %}
+  <script src="{{ js | relative_url }}"></script>
+  {% endfor %}
+  {% endif %}
+
+</body>
+</html>

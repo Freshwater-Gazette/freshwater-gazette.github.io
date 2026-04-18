@@ -1,0 +1,67 @@
+---
+layout: default
+title: null
+description: "Independent local news."
+permalink: /
+---
+
+<section class="news-section">
+
+  {% if site.posts.size > 0 %}
+
+  <!-- Featured article (latest) -->
+  {% assign featured = site.posts.first %}
+  <div class="news-featured">
+    <a href="{{ featured.url | relative_url }}" class="news-featured__link">
+      {% if featured.image and featured.image != "" %}
+      <img class="news-featured__img" src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
+      {% else %}
+      <div class="news-featured__img-placeholder"></div>
+      {% endif %}
+      <span class="news-featured__headline">{{ featured.title }}</span>
+    </a>
+    <div class="news-featured__meta">{{ featured.date | date: "%B %-d, %Y" }}</div>
+    {% if featured.description %}
+    <p class="news-featured__excerpt">{{ featured.description }}</p>
+    {% endif %}
+  </div>
+
+  <!-- Secondary articles (next 3) -->
+  {% if site.posts.size > 1 %}
+  <div class="news-secondary">
+    {% for post in site.posts offset:1 limit:3 %}
+    <a href="{{ post.url | relative_url }}" class="article-card">
+      {% if post.image and post.image != "" %}
+      <img class="article-card__img" src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% else %}
+      <div class="article-card__img-placeholder"></div>
+      {% endif %}
+      <span class="article-card__headline">{{ post.title }}</span>
+      <div class="article-card__meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Further articles -->
+  {% if site.posts.size > 4 %}
+  <div class="news-further">
+    {% for post in site.posts offset:4 %}
+    <a href="{{ post.url | relative_url }}" class="article-card">
+      {% if post.image and post.image != "" %}
+      <img class="article-card__img" src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% else %}
+      <div class="article-card__img-placeholder"></div>
+      {% endif %}
+      <span class="article-card__headline">{{ post.title }}</span>
+      <div class="article-card__meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% else %}
+  <p style="text-align:center; padding: 80px 0; font-family: var(--font-ui); color: var(--gray-500);">No articles yet — check back soon.</p>
+  {% endif %}
+
+</section>

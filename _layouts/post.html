@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="article-wrap">
+
+  <h1 class="article-headline">{{ page.title }}</h1>
+  <div class="article-byline">
+    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+  </div>
+
+  {% if page.image and page.image != "" %}
+  <img class="article-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  {% endif %}
+
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  <div class="article-comments">
+    {% include comments.html %}
+  </div>
+
+  {% assign other_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 6 %}
+  {% if other_posts.size > 0 %}
+  <div class="read-more">
+    <div class="read-more__label">Read More</div>
+    <div class="read-more__track">
+      {% for post in other_posts %}
+      <a href="{{ post.url | relative_url }}" class="read-more__card">
+        {% if post.image and post.image != "" %}
+        <img class="read-more__card-img" src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        {% else %}
+        <div class="read-more__card-placeholder"></div>
+        {% endif %}
+        <span class="read-more__card-headline">{{ post.title }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</div>

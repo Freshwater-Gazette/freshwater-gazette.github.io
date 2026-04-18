@@ -1,0 +1,48 @@
+title: The Freshwater Gazette
+description: Independent local news.
+url: "https://freshwatergazette.com"
+baseurl: ""
+
+author:
+  name: The Freshwater Gazette
+  url: https://freshwatergazette.com
+
+markdown: kramdown
+highlighter: rouge
+future: true
+
+permalink: /blog/:title/
+
+collections:
+  reviews:
+    output: true
+    permalink: /reviews/:title/
+  wip:
+    output: true
+    permalink: /drafts/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - src

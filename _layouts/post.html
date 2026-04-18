@@ -16,10 +16,6 @@ layout: default
     {{ content }}
   </div>
 
-  <div class="article-comments">
-    {% include comments.html %}
-  </div>
-
   {% assign other_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 6 %}
   {% if other_posts.size > 0 %}
   <div class="read-more">

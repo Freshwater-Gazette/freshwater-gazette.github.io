@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Military Road voted at number 1 in Sydney’s top 10 places to stay present."
-date: 2026-03-28
+date: 2026-04-18
 description: "Recent polls show that of all the places to unwind, slow down and breathe, Military road has topped them all."
 image: "/assets/images/articles/militaryroad.jpg"
 comments: true
